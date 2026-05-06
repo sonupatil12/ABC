@@ -1,0 +1,133 @@
+import pandas as pd
+
+data = [
+    ["Chicago","Q1","Mobile",605],
+    ["Chicago","Q1","Modem",825],
+    ["Toronto","Q1","Mobile",395],
+    ["Vancouver","Q2","Mobile",450],
+]
+
+df = pd.DataFrame(data, columns=["Location","Time","Item","Amount"])
+
+# Roll-up (sum by Location)
+rollup = df.groupby("Location")["Amount"].sum()
+
+print("Roll-up Output:\n")
+print(rollup)
+
+
+
+
+
+
+
+
+
+
+
+
+import pandas as pd
+
+data = [
+    ["Chicago","Q1","Mobile",605],
+    ["Chicago","Q2","Mobile",700],
+    ["Chicago","Q3","Mobile",800],
+]
+
+df = pd.DataFrame(data, columns=["Location","Time","Item","Amount"])
+
+# Drill-down (show detailed data)
+print("Drill-down Output:\n")
+print(df)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import pandas as pd
+
+data = [
+    ["Chicago","Q1","Mobile",605],
+    ["Chicago","Q2","Modem",825],
+    ["Toronto","Q1","Mobile",395],
+]
+
+df = pd.DataFrame(data, columns=["Location","Time","Item","Amount"])
+
+# Slice (Time = Q1)
+slice_df = df[df["Time"] == "Q1"]
+
+print("Slice Output:\n")
+print(slice_df)
+
+
+
+
+
+
+
+
+
+
+
+
+
+import pandas as pd
+
+data = [
+    ["Chicago","Q1","Mobile",605],
+    ["Toronto","Q1","Mobile",395],
+    ["Vancouver","Q2","Modem",450],
+    ["Toronto","Q2","Modem",200],
+]
+
+df = pd.DataFrame(data, columns=["Location","Time","Item","Amount"])
+
+# Dice (multiple conditions)
+dice_df = df[
+    (df["Location"].isin(["Toronto","Vancouver"])) &
+    (df["Time"].isin(["Q1","Q2"]))
+]
+
+print("Dice Output:\n")
+print(dice_df)
+
+
+
+
+
+
+
+
+
+dmw7 implementation of OLAP
+
+import pandas as pd
+
+data = [
+    ["Chicago","Q1","Mobile",605],
+    ["Toronto","Q1","Mobile",395],
+    ["Vancouver","Q2","Modem",450],
+    ["Toronto","Q2","Modem",200],
+]
+
+df = pd.DataFrame(data, columns=["Location","Time","Item","Amount"])
+
+# Dice (multiple conditions)
+dice_df = df[
+    (df["Location"].isin(["Toronto","Vancouver"])) &
+    (df["Time"].isin(["Q1","Q2"]))
+]
+
+print("Dice Output:\n")
+print(dice_df)

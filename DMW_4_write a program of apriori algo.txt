@@ -1,0 +1,44 @@
+dmw4 write a program of apriori algorithm using any program language
+
+from itertools import combinations
+
+# Dataset Transactions
+transactions = [
+    ['wine', 'chips', 'bread', 'milk'],
+    ['wine', 'bread', 'milk'],
+    ['bread', 'milk'],
+    ['chips', 'milk'],
+    ['wine', 'chips', 'bread'],
+    ['wine', 'chips', 'milk']
+]
+
+# Minimum support threshold
+min_support = 3
+
+# Function to calculate support
+def get_support(itemset):
+    count = 0
+
+    for transaction in transactions:
+        if set(itemset).issubset(set(transaction)):
+            count += 1
+
+    return count
+
+
+# Unique items
+items = ['wine', 'chips', 'bread', 'milk']
+
+# Generate frequent itemsets
+for i in range(1, 4):
+
+    print("\n==============================")
+    print(f" Frequent Itemsets of Size {i}")
+    print("==============================")
+
+    for combo in combinations(items, i):
+
+        support = get_support(combo)
+
+        if support >= min_support:
+            print(f"{combo}  --> Support = {support}")

@@ -1,0 +1,36 @@
+EXPERIMENT NO 3 
+AIM: - Interfacing of LCD. 
+CODE :
+int potPin = A0;        // Potentiometer connected to A0
+
+int sensorValue = 0;    // Raw ADC value (0 to 1023)
+
+float voltage = 0.0;    // Converted voltage
+
+void setup() {
+
+  // Start Serial Communication
+  Serial.begin(9600);
+}
+
+void loop() {
+
+  // Read analog value from potentiometer
+  sensorValue = analogRead(potPin);
+
+  // Convert ADC value to voltage
+  voltage = (sensorValue * 5.0) / 1023.0;
+
+  // Display ADC value
+  Serial.print("ADC Value: ");
+  Serial.print(sensorValue);
+
+  // Display voltage
+  Serial.print("   Voltage: ");
+  Serial.print(voltage);
+
+  Serial.println(" V");
+
+  // Delay of 0.5 second
+  delay(500);
+} 

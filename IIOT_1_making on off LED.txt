@@ -1,0 +1,25 @@
+EXPERIMENT NO 1  
+AIM: - Making  ON and OFF Of LED     CODE : 
+
+int ledPin = 13;   // Onboard LED pin
+
+void setup() {
+
+  // Set LED pin as OUTPUT
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+
+  // Turn LED ON
+  digitalWrite(ledPin, HIGH);
+
+  // Wait for 0.5 second
+  delay(500);
+
+  // Turn LED OFF
+  digitalWrite(ledPin, LOW);
+
+  // Wait for 0.5 second
+  delay(500);
+}

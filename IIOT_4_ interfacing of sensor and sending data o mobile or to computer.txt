@@ -1,0 +1,36 @@
+EXPERIMENT NO 4    
+AIM: - Interfacing of sensor and sending data to mobile as SMS or to computer.  
+CODE :
+int potPin = A0;      // Potentiometer input
+int ledPin = 9;       // PWM pin for LED
+
+int potValue = 0;     // 0 to 1023
+int pwmValue = 0;     // 0 to 255
+
+void setup() {
+
+  pinMode(ledPin, OUTPUT);
+
+  Serial.begin(9600);
+}
+
+void loop() {
+
+  // Read potentiometer value
+  potValue = analogRead(potPin);
+
+  // Convert 0-1023 into 0-255
+  pwmValue = map(potValue, 0, 1023, 0, 255);
+
+  // Control LED brightness
+  analogWrite(ledPin, pwmValue);
+
+  // Display values on Serial Monitor
+  Serial.print("Pot: ");
+  Serial.print(potValue);
+
+  Serial.print("   PWM: ");
+  Serial.println(pwmValue);
+
+  delay(20);
+} 

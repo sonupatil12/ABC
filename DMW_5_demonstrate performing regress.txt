@@ -1,0 +1,66 @@
+dmw5 demonstrate performing regression on dataset
+
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# -----------------------------------
+# Data: Experience vs Salary
+# -----------------------------------
+
+X = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).reshape(-1, 1)
+
+y = np.array([
+    40000,
+    45000,
+    50000,
+    60000,
+    65000,
+    70000,
+    80000,
+    90000,
+    100000,
+    120000
+])
+
+# -----------------------------------
+# Create Linear Regression Model
+# -----------------------------------
+
+model = LinearRegression()
+
+# Train the model
+model.fit(X, y)
+
+# Predict salary values
+y_pred = model.predict(X)
+
+# -----------------------------------
+# Print Equation
+# -----------------------------------
+
+print("Slope (m):", model.coef_[0])
+print("Intercept (b):", model.intercept_)
+
+# -----------------------------------
+# Plot Graph
+# -----------------------------------
+
+plt.figure(figsize=(8, 5))
+
+# Original data points
+plt.scatter(X, y, label="Actual Data")
+
+# Regression line
+plt.plot(X, y_pred, label="Regression Line")
+
+# Labels and title
+plt.xlabel("Experience (Years)")
+plt.ylabel("Salary")
+plt.title("Salary vs Experience")
+
+# Show legend
+plt.legend()
+
+# Display graph
+plt.show()

@@ -1,0 +1,46 @@
+EXPERIMENT NO 2    
+AIM: - Reading and displaying Analogue input voltage.  
+CODE : 
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+// OLED display width and height
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+
+// Create display object
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
+
+void setup() {
+
+  // Initialize OLED display
+  if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+
+    // Stop program if display not found
+    while (1);
+  }
+
+  // Clear display buffer
+  display.clearDisplay();
+
+  // Set text size
+  display.setTextSize(1);
+
+  // Set text color
+  display.setTextColor(SSD1306_WHITE);
+
+  // Set cursor position
+  display.setCursor(0, 0);
+
+  // Print text on OLED
+  display.println("Tanishka");
+  display.println("SE COM B");
+
+  // Show text on display
+  display.display();
+}
+
+void loop() {
+
+}
